@@ -1,6 +1,6 @@
 public interface Receiver {
-    void receiveDice(int random);
-    void receiveChooseColor(boolean white);
+    int receiveDice();
+    boolean receiveChooseColor();
     void receiveMove(int from, int to);
     void receiveMovePawnRule(int from, int figureType);
     void receiveRochade(int from);
