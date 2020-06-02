@@ -1,6 +1,9 @@
-public class Bishop implements Figur{
+package Figuren;
+
+
+public class Queen implements Figur {
     boolean white;
-    Bishop(boolean white){
+    Queen(boolean white){
         this.white = white;
     }
     @Override

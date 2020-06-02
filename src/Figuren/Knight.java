@@ -1,4 +1,7 @@
-public class Knight implements Figur{
+package Figuren;
+
+
+public class Knight implements Figur {
     boolean white;
     Knight(boolean white){
         this.white = white;

@@ -1,4 +1,7 @@
-public class Pawn implements Figur{
+package Figuren;
+
+
+public class Pawn implements Figur {
     boolean white;
     boolean unmoved = true;
     Pawn(boolean white){

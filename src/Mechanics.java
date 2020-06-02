@@ -1,3 +1,5 @@
+import Figuren.*;
+
 public class Mechanics implements Spielmachine{
     @Override
     public Spielfeld[][] create() {

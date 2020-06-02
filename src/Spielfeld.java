@@ -1,3 +1,5 @@
+import Figuren.Figur;
+
 public class Spielfeld {
     private Figur figur;
     //TODO:  position, feld array? Liste?

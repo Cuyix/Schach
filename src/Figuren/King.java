@@ -1,4 +1,8 @@
-public class King implements Figur{
+package Figuren;
+
+import Figuren.Figur;
+
+public class King implements Figur {
     boolean white;
     King(boolean white){
         this.white = white;
@@ -7,7 +11,7 @@ public class King implements Figur{
     public void move(int from, int to) {
         if(true){
             // Zielfeld besetzt > Ziel wird geschmissen, wenn nicht eigene Farbe
-            // Woher bekommt die Figur das Spielfeld?
+            // Woher bekommt die Figuren.Figur das Spielfeld?
         }
 
     }
