@@ -4,7 +4,7 @@ import Figuren.Figur;
 
 public class King implements Figur {
     boolean white;
-    King(boolean white){
+    public King(boolean white){
         this.white = white;
     }
     @Override

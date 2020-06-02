@@ -3,7 +3,7 @@ package Figuren;
 
 public class Rook implements Figur {
     boolean white;
-    Rook(boolean white){
+    public Rook(boolean white){
         this.white = white;
     }
     @Override

@@ -4,7 +4,7 @@ package Figuren;
 public class Pawn implements Figur {
     boolean white;
     boolean unmoved = true;
-    Pawn(boolean white){
+    public Pawn(boolean white){
         this.white = white;
     }
     @Override

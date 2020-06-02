@@ -2,7 +2,7 @@ package Figuren;
 
 public class Bishop implements Figur {
     boolean white;
-    Bishop(boolean white){
+    public Bishop(boolean white){
         this.white = white;
     }
     @Override
