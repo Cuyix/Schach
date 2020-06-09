@@ -1,17 +1,26 @@
+import Kommunikation.ConnectionReceiver;
+import Kommunikation.ConnectionSender;
+
 public class Spielstart {
     Spielstart(){
         this.ownDice = dice();
-        connection.sendDice(ownDice);
-        setFellowDice();
+        sender.sendDice(ownDice);
+        /* setFellowDice();
         State state = afterDice();
         if(state == State.COLOR){
             white = chooseColor();
-            connection.sendChooseColor(white);
+            sender.sendChooseColor(white);
         }else if(state == State.WAITING){
             white = awaitColor();
         }
+        Mechanics.white = white;
+         */
     }
-    Connection connection = new Connection();
+    //TODO: Missing Inputstream
+    ConnectionReceiver receiver = new ConnectionReceiver();
+    //TODO: Missing OutputStream
+    ConnectionSender sender = new ConnectionSender();
+
     int ownDice;
     int fellowDice;
     boolean white;
@@ -20,7 +29,7 @@ public class Spielstart {
         return dice;
     }
     public void setFellowDice() {
-        this.fellowDice = connection.receiveDice();
+        this.fellowDice = receiver.receiveDice();
     }
     public State afterDice(){
         if(ownDice > fellowDice){
@@ -32,7 +41,7 @@ public class Spielstart {
         return false;
     }
     public boolean awaitColor(){
-        boolean white = connection.receiveChooseColor();
+        boolean white = receiver.receiveChooseColor();
         return white;
     }
 }

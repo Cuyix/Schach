@@ -1,3 +1,5 @@
+package Kommunikation;
+
 public interface Sender {
     void sendDice(int random);
     void sendChooseColor(boolean white);

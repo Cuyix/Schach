@@ -18,4 +18,8 @@ public class Pawn implements Figur {
     public void movePawnRule(int from, int figureType){
 
     }
+    @Override
+    public boolean isWhite() {
+        return white;
+    }
 }

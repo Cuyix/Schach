@@ -10,4 +10,8 @@ public class Knight implements Figur {
     public void move(int from, int to) {
 
     }
+    @Override
+    public boolean isWhite() {
+        return white;
+    }
 }

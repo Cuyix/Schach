@@ -1,6 +1,9 @@
+import Kommunikation.ConnectionReceiver;
+import Kommunikation.ConnectionSender;
+
 public interface Ending {
-    public void endGame(int reason);
-    public void proposalEnd(int reason);
-    public void propsalAnswer(boolean accept);
-    public void awaitEnd(boolean accept);
+    public void endGame(int reason, ConnectionSender sender);
+    public void proposalEnd(int reason, ConnectionSender sender);
+    public boolean propsalAnswer(ConnectionReceiver receiver);
+    public int awaitEnd(ConnectionReceiver receiver);
 }

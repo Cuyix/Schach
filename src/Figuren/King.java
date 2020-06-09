@@ -21,4 +21,8 @@ public class King implements Figur {
     public boolean canMove(){
         return true;
     }
+    @Override
+    public boolean isWhite() {
+        return white;
+    }
 }

@@ -1,6 +1,11 @@
 import Figuren.*;
+import Kommunikation.ConnectionReceiver;
+import Kommunikation.ConnectionSender;
 
 public class Mechanics implements Spielmachine{
+    int ownFigures = 16;
+    int fellowFigures = 16;
+    boolean white = false;
     @Override
     public Spielfeld[][] create() {
         Spielfeld[][] board = new Spielfeld[8][8];
@@ -36,7 +41,7 @@ public class Mechanics implements Spielmachine{
         Figur knightB1 = new Knight(false);
         Figur knightW2 = new Knight(true);
         Figur knightB2 = new Knight(false);
-        //TODO: Zuteilen zum Feld
+        //TODO: Zuteilen zum Feld/Überarbeiten
         return board;
     }
 
@@ -65,5 +70,30 @@ public class Mechanics implements Spielmachine{
     public int convert(int row, int col) {
         int position = (row * 8) + col;
         return position;
+    }
+    public void receiveMove(ConnectionReceiver receiver, Spielfeld[][] spielfeld){
+        int from = receiver.receiveInt();
+        int to = receiver.receiveInt();
+        Figur figur = spielfeld[convertRow(from)][convertCol(from)].getFigur();
+        spielfeld[convertRow(from)][convertCol(from)].setFigur();
+        if(spielfeld[convertRow(to)][convertCol(to)].getFigur()!= null){
+            if(spielfeld[convertRow(to)][convertCol(to)].getFigur().isWhite()==this.white){
+                capture(to,spielfeld);
+                this.ownFigures--;
+            }
+        }
+        spielfeld[convertRow(to)][convertCol(to)].setFigur(figur);
+    }
+    public void sendMove(ConnectionSender sender, Spielfeld[][] spielfeld, int from, int to){
+        sender.sendMove(from, to);
+        Figur figur = spielfeld[convertRow(from)][convertCol(from)].getFigur();
+        spielfeld[convertRow(from)][convertCol(from)].setFigur();
+        if(spielfeld[convertRow(to)][convertCol(to)].getFigur()!= null){
+            if(spielfeld[convertRow(to)][convertCol(to)].getFigur().isWhite()!=this.white){
+                capture(to,spielfeld);
+                this.fellowFigures--;
+            }
+        }
+        spielfeld[convertRow(to)][convertCol(to)].setFigur(figur);
     }
 }
